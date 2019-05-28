@@ -18,8 +18,8 @@ if (!(Test-Path "{{pkg.svc_data_path}}/mssql${sqlMajorVersion}.{{cfg.instance}}"
     # create user databases with forward slashes in the Default
     # data directory. Future Habitat Supervisors will not use
     # forward slashes and make this workaround unnecessary
-    Set-ItemProperty -Path  "HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL${sqlMajorVersion}.{{cfg.instance}}\MSSQLServer" -Name DefaultData -Value (Resolve-Path "{{pkg.svc_data_path}}").Path
-    Set-ItemProperty -Path  "HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL${sqlMajorVersion}.{{cfg.instance}}\MSSQLServer" -Name DefaultLog -Value (Resolve-Path "{{pkg.svc_data_path}}").Path
+   Set-ItemProperty -Path  "HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL${sqlMajorVersion}.{{cfg.instance}}\MSSQLServer" -Name DefaultData -Value (Resolve-Path "{{pkg.svc_data_path}}").Path
+   Set-ItemProperty -Path  "HKLM:\SOFTWARE\Microsoft\Microsoft SQL Server\MSSQL${sqlMajorVersion}.{{cfg.instance}}\MSSQLServer" -Name DefaultLog -Value (Resolve-Path "{{pkg.svc_data_path}}").Path
 }
 
 # Configure the instance for the configured port
